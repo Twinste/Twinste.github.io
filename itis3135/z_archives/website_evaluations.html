@@ -11,42 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
         rel="stylesheet">
-    <link href="styles/default.css" rel="stylesheet">
-
-    <script src="scripts/defaultscript.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link href="styles/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar">
-            <h1 class="title">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest|Website Evaluation</h1>
-            <a href="#" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-            <div class="navbar-links">
-                <ul>
-                    <li><a id="home" href=""></a></li>
-                    <li><a id="intro" href=""></a></li>
-                    <li><a id="contract" href=""></a></li>
-                    <li><a id="tables" href=""></a></li>
-                    <li><a id="forms" href=""></a></li>
-                    <li><a id="website-evaluations" href=""></a></li>
-                    <li><a id="CRAPPY-Webpage" href=""></a></li>
-                    <li><a id="firstscripts" href=""></a></li>
-                    <li><a id="polygons" href=""></a></li>
-                    <li><a id="calculator_try" href=""></a></li>
-                    <li><a id="calculator_fcc" href=""></a></li>
-                </ul>
-            </div>
+        <h1 class="logo">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="#">More to come</a></li>
+            </ul>
         </nav>
-        <!-- <nav id="siteLinks"></nav> -->
     </header>
     <main>
-        <div class="section">
-            <h2>CRAP Website Evaluations</h2>
+        <h2>CRAP Website Evaluations</h2>
         <section>
             <h3><a href="http://www2.pnwx.com/">Pacific Northwest X-Ray Inc</a></h3>
             <figure><img src="http://www2.pnwx.com/pnwx.gif" width="250" height="60" alt="wildebeest Portrait.">
@@ -87,22 +68,28 @@
                     it easier for the proximity to look good.</li>
             </ul>
         </section>
-        </div>
-        
     </main>
     <footer>
-        <nav id="footerSiteLinks">
-            <p id="myPages"></p>
-            <p id="myCorpSite"></p>
+        <nav class="footer">
+            <p><a href="https://uncc.instructure.com/courses/189387/assignments/1799297">CRAP Website Discovery and
+                    Evaluation</a>||
+                <a href="https://webpages.charlotte.edu/twinste3/">CLT Site</a>||<a
+                    href="https://github.com/Twinste/">Github</a>||<a href="https://twinste.github.io/itis3135/">Github
+                    Pages</a>||<a href="https://www.freecodecamp.org/twinste3">freecodecamp</a>||<a
+                    href="https://www.codecademy.com/profiles/twinste3">Codecademy</a>||<a
+                    href="https://www.linkedin.com/in/tyrellw/">LinkedIn</a>
+            </p>
+            <p>site designed by <a href="winsteaddynamics.com/">Winstead Dynamics.</a> &copy;2023</p>
             <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
                     src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
             <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
                     src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+            <script>
+                document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+                document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+            </script>
         </nav>
-        <script>
-            document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-            document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-        </script>
     </footer>
 </body>
+
 </html>

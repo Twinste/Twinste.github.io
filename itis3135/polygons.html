@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITIS-3135 Tyrell Winstead's Theoretic Wildebeest|Home</title>
+    <title>Activity #6-Name the Polygon|ITIS-3135|Tyrell Winstead</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
         rel="stylesheet">
     <link href="styles/default.css" rel="stylesheet">
-    <script src="scripts/defaultscript.js" defer></script>
+    <script src="scripts/polygons.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <h1 class="title">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest|Home</h1>
+            <h1 class="title">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest|Polygons</h1>
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -43,12 +44,12 @@
         <!-- <nav id="siteLinks"></nav> -->
     </header>
     <main>
-        <div class="poply_section">
-            <h2>Welcome to my ITIS-3135 Home page</h2>
-            <figure><img src="images/wildebeest-portrait.jpg" width="300" height="450" alt="wildebeest Portrait.">
-            </figure>
+        <div id="userinfo" class="poply_section">
+            <label for="polygonNum">The Theoretic Wildebeest would like your number: <input id="polygonNum"
+                    type="number" name="Polygon Number" min="0" max="10" required></label>
+            <input type="submit" id="numberSubmitBtn" value="Submit">
+            <h3 class="message" id="message"></h3>
         </div>
-
     </main>
     <footer>
         <nav id="footerSiteLinks">
