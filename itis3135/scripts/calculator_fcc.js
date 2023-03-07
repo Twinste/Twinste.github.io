@@ -165,54 +165,58 @@ $(function () {
   $("#myCorpSite").html("site designed by " + htmlString + " &copy;2023");
 });
 
-$(function getShape() {
-  let n = document.getElementById("polygonNum").value;
+const calculator = document.querySelector('.calculator_fcc')
+const keys = calculator.querySelector('.calculator__keys_fcc')
+const display = document.querySelector('.display_fcc')
 
-  console.log(n);
-});
 
-const polygonNum = document.getElementById("polygonNum");
-const numberSubmitBtn = document.getElementById("numberSubmitBtn");
-const polygonMessage = document.getElementById("message");
+keys.addEventListener('click', e => {
+  // Listening to key-presses
+  if (e.target.matches('button')) {
+    const key = e.target
+    const action = key.dataset.action
 
-function getShape() {
-  let polygon = validateEntry(polygonNum.value);
+    const keyContent = key.textContent
+    const displayedNum = display.textContent
 
-  if (polygon == 1) {
-    polygonMessage.innerHTML = "Henagon";
-  } else if (polygon == 2) {
-    polygonMessage.innerHTML = "Digon";
-  } else if (polygon == 3) {
-    polygonMessage.innerHTML = "Trigon";
-  } else if (polygon == 4) {
-    polygonMessage.innerHTML = "Tetragon";
-  } else if (polygon == 5) {
-    polygonMessage.innerHTML = "Pentagon";
-  } else if (polygon == 6) {
-    polygonMessage.innerHTML = "Hexagon";
-  } else if (polygon == 7) {
-    polygonMessage.innerHTML = "Heptagon";
-  } else if (polygon == 8) {
-    polygonMessage.innerHTML = "Octagon";
-  } else if (polygon == 9) {
-    polygonMessage.innerHTML = "Enneagon";
-  } else if (polygon == 10) {
-    polygonMessage.innerHTML = "Decagon";
-  } else if (polygon == null) {
-    polygonMessage.innerHTML = "Invalid input";
+    // When a user hits a number key
+    if (!action) {
+      if (displayedNum === '0') {
+        display.textContent = keyContent
+      } else {
+        display.textContent = displayedNum + keyContent
+      }
+    }
+    // When a user hits the decimal key
+    if (action === 'decimal') {
+      display.textContent = displayedNum + '.'
+    }
+
+    // When a user hits an operator key
+    if (
+      action === 'add' ||
+      action === 'subtract' ||
+      action === 'multiply' ||
+      action === 'divide'
+    ) {
+      key.classList.add('is-depressed')
+    }
+
+    // Remove .is-depressed class from all keys
+    Array.from(key.parentNode.children)
+      .forEach(k => k.classList.remove('is-depressed'))
+
+    // Add custom attribute
+    calculator.dataset.previousKeyType = 'operator'
+
+    const previousKeyType = calculator.dataset.previousKeyType
+
+    if (!action) {
+      if (displayedNum === '0' || previousKeyType === 'operator') {
+        display.textContent = keyContent
+      } else {
+        display.textContent = displayedNum + keyContent
+      }
+    }
   }
-
-  console.log(polygon);
-}
-numberSubmitBtn.addEventListener("click", getShape);
-
-function validateEntry(polygon) {
-  polygon = Math.abs(polygon);
-  polygon = Math.round(polygon);
-
-  if (polygon >= 1 && polygon <= 10) {
-    return polygon;
-  } else {
-    return null;
-  }
-}
+})

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITIS-3135 Tyrell Winstead's Theoretic Wildebeest|Calculator</title>
+    <title>ITIS-3135 | Tyrell Winstead's Theoretic Wildebeest | Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
@@ -13,14 +13,12 @@
     <link href="styles/default.css" rel="stylesheet">
     <script src="scripts/calculator_try.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <h1 class="title">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest|Calculator</h1>
+            <h1 class="title">ITIS-3135 | Tyrell Winstead's Theoretic Wildebeest | Calculator</h1>
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -47,40 +45,42 @@
         <div class="container">
             <table class="calculator">
                 <tr>
-                    <td colspan="4"> <input class="display" type="text" id="result" disabled /> </td>
+                    <td colspan="4"> <input class="display" type="text" id="result" disabled> </td>
                 </tr>
                 <tr class="buttons"><!-- clearScreen() function clears all the values -->
-                    <td colspan="2"> <input type="button" value="AC" onclick="clearScreen()" id="btn" class="button" /> </td>
-                    <td colspan="1"><input type="button" value="<" onclick="backspace()" class="button" /></td>
-                    <td> <input type="button" value="/" onclick="display('/')" class="button" /> </td>
+                    <td colspan="2"> <input type="button" value="AC" onclick="clearScreen()" id="btn" class="button">
+                    </td>
+                    <td colspan="1"><input type="button" value="<" onclick="backspace()" class="button"></td>
+                    <td> <input type="button" value="/" onclick="display('/')" class="button"> </td>
                 </tr>
                 <tr class="buttons"> <!-- display() function displays the value of clicked button -->
-                    <td> <input type="button" value="1" onclick="display('1')" class="button" /> </td>
-                    <td> <input type="button" value="2" onclick="display('2')" class="button" /> </td>
-                    <td> <input type="button" value="3" onclick="display('3')" class="button" /> </td>
-                    <td> <input type="button" value="*" onclick="display('*')" class="button" /> </td>
+                    <td> <input type="button" value="1" onclick="display('1')" class="button"> </td>
+                    <td> <input type="button" value="2" onclick="display('2')" class="button"> </td>
+                    <td> <input type="button" value="3" onclick="display('3')" class="button"> </td>
+                    <td> <input type="button" value="*" onclick="display('*')" class="button"> </td>
                 </tr>
                 <tr class="buttons">
-                    <td> <input type="button" value="4" onclick="display('4')" class="button" /> </td>
-                    <td> <input type="button" value="5" onclick="display('5')" class="button" /> </td>
-                    <td> <input type="button" value="6" onclick="display('6')" class="button" /> </td>
-                    <td> <input type="button" value="-" onclick="display('-')" class="button" /> </td>
+                    <td> <input type="button" value="4" onclick="display('4')" class="button"> </td>
+                    <td> <input type="button" value="5" onclick="display('5')" class="button"> </td>
+                    <td> <input type="button" value="6" onclick="display('6')" class="button"> </td>
+                    <td> <input type="button" value="-" onclick="display('-')" class="button"> </td>
                 </tr>
                 <tr class="buttons">
-                    <td> <input type="button" value="7" onclick="display('7')" class="button" /> </td>
-                    <td> <input type="button" value="8" onclick="display('8')" class="button" /> </td>
-                    <td> <input type="button" value="9" onclick="display('9')" class="button" /> </td>
-                    <td> <input type="button" value="+" onclick="display('+')" class="button" /> </td>
+                    <td> <input type="button" value="7" onclick="display('7')" class="button"> </td>
+                    <td> <input type="button" value="8" onclick="display('8')" class="button"> </td>
+                    <td> <input type="button" value="9" onclick="display('9')" class="button"> </td>
+                    <td> <input type="button" value="+" onclick="display('+')" class="button"> </td>
                 </tr>
                 <tr class="buttons">
-                    <td> <input type="button" value="0" onclick="display('0')" class="button" /> </td>
-                    <td> <input type="button" value="." onclick="display('.')" class="button" /> </td>
+                    <td> <input type="button" value="0" onclick="display('0')" class="button"> </td>
+                    <td> <input type="button" value="." onclick="display('.')" class="button"> </td>
                     <!-- calculate() function evaluates the mathematical expression -->
-                    <td colspan="2"> <input type="button" value="=" onclick="calculate()" id="equal_btn" class="button" /> </td>
+                    <td colspan="2"> <input type="button" value="=" onclick="calculate()" id="equal_btn" class="button">
+                    </td>
                 </tr>
             </table>
         </div>
-<!-- 
+        <!-- 
 
         <div class="container">
             <div class="calculator">
@@ -117,6 +117,7 @@
         <nav id="footerSiteLinks">
             <p id="myPages"></p>
             <p id="myCorpSite"></p>
+
             <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
                     src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
             <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
