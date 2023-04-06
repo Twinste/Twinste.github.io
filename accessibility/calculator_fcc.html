@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITIS-3135 | Tyrell Winstead's Theoretic Wildebeest | Calculator FCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
+        rel="stylesheet">
+    <link href="styles/default.css" rel="stylesheet">
+    <script src="scripts/calculator_fcc.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="title">ITIS-3135 | Tyrell Winstead's Theoretic Wildebeest | Calculator FCC</h1>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul id="navbar-links"></ul>
+                <a class="othersites" href="#">Other Sites</a>
+            </div>
+        </nav>
+        <nav class="sub-navbar">
+            <div class="sub-navbar-links">
+                <ul id="sub-navbar-links"></ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container_fcc">
+            <div class="calculator_fcc">
+                <div class="display_fcc">0</div>
+                <div class="calculator__keys_fcc">
+                    <button class="key--operator" data-action="add">+</button>
+                    <button class="key--operator" data-action="subtract">-</button>
+                    <button class="key--operator" data-action="multiply">&times;</button>
+                    <button class="key--operator" data-action="divide">÷</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key--equal" data-action="calculate">=</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key" id="key_0">0</button>
+                    <button class="key" data-action="decimal">.</button>
+                    <button class="key" data-action="clear">AC</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <nav id="footerSiteLinks">
+            <p id="myPages"></p>
+            <p id="myCorpSite"></p>
+            <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
+                    src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
+            <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                    src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+        </nav>
+        <script>
+            document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+            document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+        </script>
+    </footer>
+</body>
+
+</html>

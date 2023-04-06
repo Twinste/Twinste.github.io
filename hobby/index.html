@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Diffusion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*
+            font-family: 'Aboreto', cursive;
+            font-family: 'Oswald', sans-serif;
+            font-family: 'Secular One', sans-serif;
+            */
+        body {
+            font-family: 'Oswald', sans-serif;
+            margin: 0 auto;
+            /* margin: 20px 50px 3px 10px; */
+        }
+
+        header {
+            padding-left: 100px;
+
+        }
+
+        main {
+            text-align: left;
+            margin: 0 auto;
+            display: block;
+            padding-left: 125px;
+            padding-top: 0.5rem;
+            padding-bottom: 15rem;
+            padding-right: 2.5rem;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 78px;
+            background: #11101D;
+            padding: 6px 14px;
+            z-index: 99;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open {
+            width: 250px;
+        }
+
+        .shift {
+            padding-left: 175px;
+        }
+
+        .sidebar .logo-details {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .sidebar .logo-details img {
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar .logo-details .logo_name {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open .logo-details img,
+        .sidebar.open .logo-details .logo_name {
+            opacity: 1;
+        }
+
+        .sidebar .logo-details #btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: 22px;
+            transition: all 0.4s ease;
+            font-size: 23px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open .logo-details #btn {
+            text-align: right;
+        }
+
+        .sidebar i {
+            color: #fff;
+            height: 60px;
+            min-width: 50px;
+            font-size: 28px;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .sidebar img {
+            height: 45px;
+            min-width: 45px;
+            text-align: center;
+            justify-content: center;
+            padding: .1rem;
+        }
+
+        .sidebar .nav-list {
+            margin-top: 20px;
+            height: 100%;
+        }
+
+        .sidebar li {
+            position: relative;
+            margin: 8px 0;
+            list-style: none;
+        }
+
+        .sidebar li .tooltip {
+            position: absolute;
+            top: -20px;
+            left: calc(100% + 15px);
+            z-index: 3;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 400;
+            opacity: 0;
+            white-space: nowrap;
+            pointer-events: none;
+            transition: 0s;
+        }
+
+        .sidebar li:hover .tooltip {
+            opacity: 1;
+            pointer-events: auto;
+            transition: all 0.4s ease;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .sidebar.open li .tooltip {
+            display: none;
+        }
+
+        .sidebar input {
+            font-size: 15px;
+            color: #FFF;
+            font-weight: 400;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            width: 50px;
+            border: none;
+            border-radius: 12px;
+            transition: all 0.5s ease;
+            background: #1d1b31;
+        }
+
+        .sidebar.open input {
+            padding: 0 20px 0 50px;
+            width: 100%;
+        }
+
+        .sidebar li a {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            border-radius: 12px;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            background: #11101D;
+        }
+
+        .sidebar li a:hover {
+            background: #FFF;
+        }
+
+        .sidebar li a .links_name {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 400;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .sidebar.open li a .links_name {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sidebar li a:hover .links_name,
+        .sidebar li a:hover i {
+            transition: all 0.5s ease;
+            color: #11101D;
+        }
+
+        .sidebar li i {
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            border-radius: 12px;
+        }
+
+        .sidebar li img {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        section {
+            padding-bottom: 2.5rem;
+            font-size: large;
+        }
+
+        #section p {
+            padding-left: 15px;
+        }
+
+        #section ul {
+            padding-left: 45px;
+        }
+
+        /* Three image containers (use 25% for four, and 50% for two, etc) */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        /* Clear floats after image containers */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        figure {
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
+        }
+
+        figure img {
+            min-width: 100px;
+        }
+
+        figcaption {
+            text-align: center;
+            margin: 0 auto;
+            font-size: medium;
+            max-width: 650px;
+        }
+
+        footer {
+            margin: 0 auto;
+            display: block;
+            padding-left: 125px;
+            padding-top: 0.5rem;
+            padding-bottom: 5rem;
+
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            position: static;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: crimson;
+        }
+
+        @media (max-width: 800px) {
+            section {
+                padding-bottom: 2.5rem;
+                font-size: medium;
+            }
+
+            .title {
+                margin-right: 30px;
+            }
+
+            .sidebar.open {
+                width: 175px;
+            }
+
+            .shift {
+                padding-left: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="title" class="title">Stable Diffusion</h1>
+    </header>
+    <main>
+        <div class="sidebar">
+            <div class="logo-details">
+                <i><img src="images/winstead-dynamics-website-favicon-white.png" alt="" width="25%"></i>
+                <div class="logo_name">Winstead Dynamics</div>
+
+                <i class="material-symbols-outlined" id="btn">
+                    menu
+                </i>
+            </div>
+            <ul class="nav-list">
+                <li>
+                    <a href="#introduction">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="links_name">Introduction</span>
+                    </a>
+                    <span class="tooltip">Introduction</span>
+                </li>
+                <li>
+                    <a href="#AUTOMATIC1111">
+                        <i><img src="images/196056941-aace0837-473a-4aa5-9067-505b17797aa1.png" alt=""></i>
+                        <span class="links_name">AUTOMATIC1111</span>
+                    </a>
+                    <span class="tooltip">AUTOMATIC1111</span>
+                </li>
+                <li>
+                    <a href="#Prompt">
+                        <i class='bx bx-chat'></i>
+                        <span class="links_name">Prompt</span>
+                    </a>
+                    <span class="tooltip">Prompt</span>
+                </li>
+                <li>
+                    <a href="#Model">
+                        <i class='bx bx-pie-chart-alt-2'></i>
+                        <span class="links_name">Model</span>
+                    </a>
+                    <span class="tooltip">Model</span>
+                </li>
+                <li>
+                    <a href="#Text-to-image">
+                        <i class="material-symbols-outlined">
+                            description
+                        </i>
+                        <span class="links_name">Text-to-image</span>
+                    </a>
+                    <span class="tooltip">Text-to-image</span>
+                </li>
+                <li>
+                    <a href="#Image-to-image">
+                        <i class="material-symbols-outlined">
+                            image
+                        </i>
+                        <span class="links_name">Image-to-image</span>
+                    </a>
+                    <span class="tooltip">Image-to-image</span>
+                </li>
+                <li>
+                    <a href="#Upscalers">
+                        <i class="material-symbols-outlined">
+                            open_in_full
+                        </i>
+                        <span class="links_name">Upscalers</span>
+                    </a>
+                    <span class="tooltip">Upscalers</span>
+                </li>
+            </ul>
+        </div>
+        <div id="section">
+            <section class="introduction" id="introduction">
+                <p>
+                    Stable Diffusion is a deep learning, text-to-image model released in 2022. It is primarily used to
+                    generate detailed images conditioned on text descriptions, though it can also be applied to other
+                    tasks such as inpainting, outpainting, and generating image-to-image translations guided by a text
+                    prompt. It was developed by the start-up Stability AI in collaboration with a number of academic
+                    researchers and non-profit organizations
+                </p>
+                <figure><img src="images/00003-3014005352.png" width="25%" alt="astronaut riding a horse">
+                    <figcaption>image generated by Stable Diffusion based on the text prompt "RAW photo,
+                        Masterpiece, Analog style, best quality, detailed, a
+                        photograph of an astronaut riding a horse, high resolution, studio
+                        lighting, HDR photo, sharp focus, studio photo, intricate details,
+                        Fujifilm XT3, 35mm Nikkor lens, high_iso ISO1600 depth of field
+                        film_grain 35mm XT3"</figcaption>
+                </figure>
+                <p>
+                    Stable Diffusion is a latent diffusion model, a kind of
+                    deep generative neural network. Its code and model weights have been released publicly, and it
+                    can run on most consumer hardware equipped with a modest GPU with at least 8 GB VRAM. This marked a
+                    departure from previous proprietary text-to-image models such as DALL-E and Midjourney which were
+                    accessible only via cloud services.
+                </p>
+            </section>
+
+            <section class="AUTOMATIC1111" id="AUTOMATIC1111">
+                <h2>Stable Diffusion web UI</h2>
+                <p>Automatic 1111 is a popular open-source UI tool built to help enthusiasts and artists play around
+                    with SD and apply many advanced features. </p>
+                <figure><img src="images/Screenshot (1048).png" alt="Snow" style="width:75%">
+                    <figcaption>Stable Diffusion Webui - AUTOMATIC1111</figcaption>
+                </figure>
+                <ul>
+                    <li>txt2img modes</li>
+                    <li>img2img modes</li>
+                    <li>Outpainting</li>
+                    <li>Inpainting</li>
+                    <li>Color Sketch</li>
+                    <li>Prompt Matrix</li>
+                    <li>Stable Diffusion Upscale</li>
+                    <li>Textual Inversion</li>
+                    <li>Hypernetworks</li>
+                    <li>Loras</li>
+                </ul>
+            </section>
+
+            <section class="Prompt" id="Prompt">
+                <h2>Prompt</h2>
+                <p>Prompt is a text string that we submit to the system so that it can create an image for you. the more
+                    specific details you provide, the better results the system will generate for you. But finding the
+                    right prompt can be challenging.</p>
+                <p>To be good at building prompts, you need to think like Stable Diffusion. At its core, it is an image
+                    sampler, generating pixel values that we humans likely say it's legit and good. You can even use it
+                    without prompts, and it would generate many unrelated images. In technical terms, this is called
+                    unconditioned or unguided diffusion.</p>
+                <div class="row">
+                    <div class="column">
+                        <figure><img src="images/00002-2822717783.png" alt="Snow" style="width:100%">
+                            <figcaption>Spaceship landing on an alien planet, cyberpunk, clouds in the sky, by Bob
+                                Eggleton, futuristic style</figcaption>
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <figure> <img src="images/00003-3919119723.png" alt="Forest" style="width:100%">
+                            <figcaption>Spaceship landing on an alien planet, by Bob Eggleton
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <p>The prompt is a way to guide the diffusion process to the sampling space where it matches. I said
+                    earlier that a prompt needs to be detailed and specific. It's because a detailed prompt narrows down
+                    the sampling space.</p>
+                <figure> <img src="images/Screenshot (1044).png" alt="Forest" style="width:75%">
+                </figure>
+                <p>Using negative prompts is another great way to steer the image, but instead of putting in what you
+                    want, you put in what you don't want. They don't need to be objects. They can also be styles and
+                    unwanted attributes. (e.g. ugly, deformed)</p>
+            </section>
+
+            <section class="Model" id="Model">
+                <h2>Model</h2>
+                <p>The results you will get using a prompt might different for different models of Stable Diffusion.
+                    Currently, two major releases and a few versions of Stable Diffusion are available in each release.
+                </p>
+                <figure> <a href="https://civitai.com/"><img src="images/civitai-icon-filled-256.png" alt="Snow"
+                            style="width:15%"></a>
+                    <figcaption>Civitai Logo</figcaption>
+                </figure>
+                <p> <a href="https://civitai.com/">Civitai</a> is a platform that makes it easy for people to share and
+                    discover resources for creating AI
+                    art. Users can upload and share custom models that they've trained using their own data, or
+                    browse and download models created by other users. These models can then be used with AI art
+                    software to generate unique works of art.</p>
+                <figure> <img src="images/Screenshot (1050).png" alt="Forest" style="width:100%">
+                    <figcaption>Civital model page for <a
+                            href="https://civitai.com/models/4201/realistic-vision-v13">Realistic Vision V1.3</a>
+                    </figcaption>
+                </figure>
+                <p>Models can be trained to generate a wide range of styles, from photorealistic images to abstract
+                    patterns, and can be used to create art that is difficult or time-consuming for humans to
+                    produce manually.</p>
+                <figure> <a href="https://huggingface.co/"><img src="images/hf-logo-with-title.png" alt="Snow"
+                            style="width:50%"></a>
+                    <figcaption>Hugging Face Logo</figcaption>
+                </figure>
+                <p> <a href="https://huggingface.co/">Hugging Face</a> is a French company that develops
+                    tools for building applications using machine learning. It is most notable for its Transformers
+                    library built for natural language processing applications and its platform that allows users to
+                    share machine learning models and datasets.</p>
+                <figure> <img src="images/Screenshot (1051).png" alt="Forest" style="width:100%">
+                    <figcaption>Hugging Face model page for <a
+                            href="https://huggingface.co/prompthero/openjourney-v4">Openjourney v4</a>
+                    </figcaption>
+                </figure>
+                <p>Models can be trained to generate a wide range of styles, from photorealistic images to abstract
+                    patterns, and can be used to create art that is difficult or time-consuming for humans to
+                    produce manually.</p>
+                <figure><img src="images/Screenshot (1045).png" alt="Snow" style="width:75%">
+                    <figcaption>Different Stable Diffusion Models.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="Text-to-image" id="Text-to-image">
+                <h2>Text-to-image</h2>
+                <p>The txt2img tab loads when you first open AUTOMATIC1111 and does the most basic function of Stable
+                    Diffusion, turning a text prompt into an images.First select a Stable Diffusion Checkpoint you want
+                    to. Then create a prompt to Describe what you
+                    want to see in the images. Below is an example. See the complete guide for prompt building for a
+                    tutorial.Width and height: The size of the output image. You should set at least one side to 512
+                    pixels when
+                    using a v1 model. For example, set the width to 512 and the height to 768 for a portrait image with
+                    a 2:3 aspect ratio.Batch size: Number of images to be generated each time. You want to generate at
+                    least a few when
+                    testing a prompt because each one will differ.Finally, hit the Generate button. After a short wait,
+                    you will get your images!
+                </p>
+                <figure><img src="images/Screenshot (1048).png" alt="Snow" style="width:75%">
+                    <figcaption>Stable Diffusion Webui - AUTOMATIC1111</figcaption>
+                </figure>
+                <p>You can save an image to your local storage. First, select the image using the thumbnails below the
+                    main image canvas. Right-click the image to bring up the context menu. You should have options to
+                    save the image or copy the image to the clipboard.</p>
+                <figure><img src="images/00002-577232671.png" alt="Snow" style="width:50%">
+                    <figcaption>
+                        image generated by Stable Diffusion based on the text prompt "photo of coastline,
+                        rocks, storm weather, wind, waves, lightning, 8k uhd, dslr, soft lighting, high quality, film
+                        grain, Fujifilm XT3"
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="Image-to-image" id="Image-to-image">
+                <h2>Image-to-image</h2>
+                <p>The img2img tab is where you use the image-to-image functions. Most users would visit this tab for
+                    inpainting and turning an image into another. However you can use it to create new images that
+                    follow the composition of a base image.
+                </p>
+                <p>Step 1: Drag and drop the base image to the img2img tab on the img2img page.
+                </p>
+                <figure><img src="images/Screenshot (1055).png" alt="Snow" style="width:75%">
+                    <figcaption>Stable Diffusion Webui - AUTOMATIC1111</figcaption>
+                </figure>
+                <p>Step 2: Adjust width or height, so the new image has the same aspect ratio. You should see a
+                    rectangular frame in the image canvas indicating the aspect ratio. In the above landscape image, I
+                    set the width to 760 while keeping the height at 512.</p>
+                <p>Step 3: Set the sampling method and sampling steps. I typically use DPM++ 2M Karass with 25 steps.
+                </p>
+                <p>Step 4: Write a prompt for the new image. I will use the following prompt.
+
+                </p>
+                <p>Step 5: Press the Generate button to generate images. Adjust denoising strength and repeat. Below are
+                    images with varying denoising strengths.</p>
+                <div class="row">
+                    <div class="column">
+                        <figure><img src="images/Baby-Lamb-3.jpg" alt="Snow" style="width:100%">
+                            <figcaption>image of a lamb to be used for image generation </figcaption>
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <figure> <img src="images/00004-2338009453.png" alt="Forest" style="width:100%">
+                            <figcaption>
+                                img2img output generated by the prompt "A photorealistic illustration of a red goat" and
+                                a base image
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section class="Upscalers" id="Upscalers">
+                <h2>Upscalers</h2>
+                <p>AUTOMATIC1111 offers a few upscalers by default. The Upscaler dropdown menu lists several built-in
+                    options. You can also install your own. Lanczos and Nearest are old-school upscalers they are not
+                    as powerful but the behavior is predictable.
+                </p>
+                <p>
+                    ESRGAN, R-ESRGAN, ScuNet, and SwinIR are AI upscalers. They can literally make up content to
+                    increase resolution. Some are trained for a particle style. The best way to find out if they work
+                    for your image is to test them out. I may sound like a broken record now, but make sure to look at
+                    the image closely at full resolution.
+                </p>
+                <p>
+                    Upscaler 2: Sometimes, you want to combine the effect of two upscalers. This option lets you combine
+                    the results of two upscalers. The amount of blending is controlled by the Upscaler 2 Visibility
+                    slider. A higher value shows upscaler 2 more.
+                </p>
+                <figure><img src="images/Screenshot (1058).png" alt="Snow" style="width:75%">
+                    <figcaption>AUTOMATIC1111 upscale an image example</figcaption>
+                </figure>
+                <figure><img src="images/00044.png" alt="Snow" style="width:75%">
+                    <figcaption>Upscaled image using 4x-UltraSharp upscaler</figcaption>
+                </figure>
+            </section>
+    </main>
+    <footer>
+        <div id="section">
+            <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
+                    src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
+            <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                    src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+        let section = document.querySelector("#section");
+        let title = document.querySelector(".title");
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            section.classList.toggle("shift");
+            title.classList.toggle("shift");
+        });
+    </script>
+</body>
+
+</html>
