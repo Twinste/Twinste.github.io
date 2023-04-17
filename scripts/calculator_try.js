@@ -20,7 +20,10 @@ $(function () {
   mainNav.innerHTML += "<li><a id='calculator_fcc' href='calculator_fcc.html'>Calculator FCC</a></li>";
   mainNav.innerHTML += "<li><a id='arrays' href='arrays.html'>Arrays</a></li>";
   mainNav.innerHTML += "<li><a id='slideshow' href='slideshow.html'>Slideshow</a></li>";
-  mainNav.innerHTML += "<li><a id='project1' href='project1.html'>Project1</a></li>";
+  mainNav.innerHTML += "<li><a id='project1' href='project1.html'>Project 1</a></li>";
+  mainNav.innerHTML += "<li><a id='review1' href='review1.html'>Review 1</a></li>";
+  mainNav.innerHTML += "<li><a id='review2' href='review2.html'>Review 2</a></li>";
+
   // mainNav.innerHTML += "<ul class='sub-navbar'><li><a id='CRAPPY-Webpage' href='stuff/$OFTWAREWE8SIT57.htm'>CRAPPY Webpage</a></li></ul>";
   // mainNav.innerHTML += "<li><div class='dropdown'><a href='#' class='toggle-subMenu'>Other Sites</a><div class='dropdown-content'><a id='CRAPPY-Webpage' href='stuff/$OFTWAREWE8SIT57.htm'>CRAPPY Webpage</a></div></div></li>";
 })
@@ -31,7 +34,10 @@ $(function () {
   subNav.innerHTML += "<li><a id='accessibility' href='accessibility/'>Accessibility</a></li>";
   subNav.innerHTML += "<li><a id='project1' href='project/'>Project1</a></li>";
   subNav.innerHTML += "<li><a id='hobby' href='hobby/'>Hobby</a></li>";
-
+  subNav.innerHTML += "<li><a id='activity_11' href='activity11/Winstead-Activity11.html'>Activity 11</a></li>";
+  subNav.innerHTML += "<li><a id='activity_12' href='activity12/Winstead-Activity12.html'>Activity 12</a></li>";
+  subNav.innerHTML += "<li><a id='activity_13' href='activity13/Winstead-Activity13.html'>Activity 13</a></li>";
+  subNav.innerHTML += "<li><a id='activity_14' href='activity14/Winstead-Activity14.html'>Activity 14</a></li>";
 })
 
 // Sub-Navbar
@@ -57,7 +63,7 @@ $(function () {
       alt: "Github",
     },
     3: {
-      url: "https://twinste.github.io/itis3135/",
+      url: "https://twinste.github.io/",
       text: "Github Pages",
       alt: "Github Pagese",
     },
@@ -114,7 +120,7 @@ $(function () {
       htmlString += links[id]["text"];
     } else {
       htmlString +=
-        '<a href="' + links[id]["url"] + '">' + links[id]["text"] + "</a>";
+        '<a href="' + links[id]["url"] + '">' + '<u>' + links[id]["text"] + '</u>' + "</a>";
     }
   }
 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITIS-3135 | Tyrell Winstead's Theoretic Wildebeest | Peer Review 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
+        rel="stylesheet">
+    <link href="styles/default.css" rel="stylesheet">
+    <script src="scripts/defaultscript.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="title">ITIS-3135 | Tyrell Winstead's Theoretic Wildebeest | Peer Review 1</h1>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul id="navbar-links"></ul>
+                <div class="othersites-div">
+                    <li class="othersites">Other Sites</li>
+                </div>
+            </div>
+        </nav>
+        <nav class="sub-navbar">
+            <div class="sub-navbar-links">
+                <ul id="sub-navbar-links"></ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2>Peer Review: <a href="https://webpages.charlotte.edu/bjone169/itis_3135/"><u>Brandon Jones</u></a></h2>
+        <br>
+        <div class="section">
+            <h2>File management/naming:</h2>
+            <ul>
+                <li>There are no spaces or capital letters in file and folder names <span>&#10003;</span></li>
+                <li>Images, styles, and scripts are in correct folders <span>&#10003;</span></li>
+                <li>Html pages are in the root folder for the course <span>&#10003;</span></li>
+                <li>Other files are in appropriate locations <span>&#10003;</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Styles:</h2>
+            <ul>
+                <li>Primary stylesheet is named default.css <span>&#10007;</span></li>
+                <li>Page has styles applied to it <span>&#10007;</span></li>
+                <li>Is the styles page named appropriately to the page <span>&#10003;</span></li>
+                <li>Styles formatted consistently <span>&#10007;</span></li>
+                <li>Other files are in appropriate locations <span>&#10003;</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Page Design:</h2>
+            <ul>
+                <li>Using a font other than comic, times, or papyrus <span>&#10007;</span></li>
+                <li>No black text or white background <span>&#10007;</span></li>
+                <li>No blue/purple links <span>&#10007;</span></li>
+                <li>Links stand out apart from normal text in some way <span>&#10003;</span></li>
+                <li>Page title include information about the person/site and page <span>&#10003;</span></li>
+                <li>Is there a heading for the name of THAT page <span>&#10007;</span></li>
+                <li>On the page (in the header) is there a clear name/graphic/heading at the top that indicates the SITE
+                    (not the page) - i.e. John Smith's WEB110 Enterprises <span>&#10003;</span></li>
+                <li>CRAP principles (contrast, repetition, alignment, proximity) are evident in the page format
+                    <span>&#10007;</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Validation:</h2>
+            <ul>
+                <li>Buttons have transparency behind the checkboxes <span>&#10003;</span></li>
+                <li>There should be no small underline between the buttons (hint: text-decoration: none on the anchor
+                    tag will remove that)
+                    <span>&#10007;</span>
+                </li>
+
+                <li>When i hover over the buttons do they lead to a link that ends with referrer? If not, check your
+                    links as they are meant to submit the page they came from (the referring page) for validation, so
+                    the same link will work from any page. <span>&#10007;</span></li>
+
+                <li>Do the pages validate fully with no warnings or errors? <span>&#10007;</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Page Code:</h2>
+            <ul>
+                <li>Does the page have within the body a header, main and footer (and everything is inside one of those
+                    three) <span>&#10007;</span></li>
+                <li>Are the indents clean <span>&#10007;</span>
+                </li>
+                <li>Are there divs and id's and classes that are unnecessary <span>&#10007;</span>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <nav id="footerSiteLinks">
+            <p id="myPages"></p>
+            <p id="myCorpSite">site designed by Winstead Dynamics &copy;2023</p>
+            <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
+                    src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
+            <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                    src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+        </nav>
+        <script>
+            document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+            document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+        </script>
+    </footer>
+</body>
+
+</html>

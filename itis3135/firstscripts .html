@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity #5-First JavaScripts|ITIS-3135|Tyrell Winstead's Theoretic Wildebeest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
+        rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet">
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="#">More to come</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Activity #5 - First JavaScripts</h2>
+        <div class="datetime">
+            <h3 class="time"></h3>
+            <h3 class="date"></h3>
+        </div>
+        <div class="userinfo">
+            <p>Please enter your name and how you are feeling</p>
+            <label for="name">Name:<input id="myName" type="text" name="name" placeholder="John Doe" required></label>
+            <label for="feeling">How are you feelings:<input id="myfeeling" type="text" name="feeling"
+                    placeholder="Happy" required></label>
+            <input type="button" id="userInfoBtn" value="Submit">
+            <p class="message" id="message"></p>
+        </div>
+        <br>
+        <div class="salestax">
+            <p>Would you like to know the sales tax of your item?</p>
+            <label for="subtotal">Subtotal:<input id="mySubtotal" type="number" name="subtotal" placeholder="200"
+                    required></label>
+            <input type="button" id="salesTaxBtn" value="Calculate">
+            <p class="message" id="salesTax"></p>
+        </div>
+        <br>
+        <div class="Area of rectangle">
+            <p>Would you like to calculate the area of a rectangle</p>
+            <label for="length">Length:<input id="myLength" type="number" name="length"></label>
+            <label for="Width">Width:<input id="myWidth" type="number" name="width"></label>
+            <input type="button" id="rectAreaBtn" value="Calculate">
+            <p class="message" id="rectArea"></p>
+        </div>
+        <br>
+        <div class="Increment Number">
+            <p>Would you like to increment a number</p>
+            <label for="numToBeIncremented">Increment a number:<input id="numToBeIncremented" type="number"
+                    name="numToBeIncremented"></label>
+            <input type="button" id="numToBeIncrementedBtn" value="Increment">
+            <p class="message" id="incrementedNum"></p>
+        </div>
+        <br>
+        <div class="Area of a circle">
+            <p>Would you like to calculate the area of a circle</p>
+            <label for="radiusOfCircle">Radius of circle:<input id="radiusOfCircle" type="number"
+                    name="radiusOfCircle"></label>
+            <input type="button" id="areaOfCircleBtn" value="Calculate">
+            <p class="message" id="areaOfCircle"></p>
+        </div>
+        <br>
+        <div class="Perimeter of a triangle">
+            <p>Would you like to calculate the perimeter of a triangle</p>
+            <label for="sideA">a:<input id="sideA" type="number" name="sideA"></label>
+            <label for="sideB">b:<input id="sideB" type="number" name="sideB"></label>
+            <label for="sideC">c:<input id="sideC" type="number" name="sideC"></label>
+            <input type="button" id="perimeterOfTriangleBtn" value="Calculate">
+            <p class="message" id="perimeterOfTriangle"></p>
+        </div>
+    </main>
+    <footer>
+        <nav class="footer">
+            <p><a href="https://uncc.instructure.com/courses/189387/assignments/1799277">Activity #5-First JavaScripts</a>||<a
+                    href="https://webpages.charlotte.edu/twinste3/">CLT Site</a>||<a
+                    href="https://github.com/Twinste/">Github</a>||<a href="https://twinste.github.io/itis3135/">Github
+                    Pages</a>||<a href="https://www.freecodecamp.org/twinste3">freecodecamp</a>||<a
+                    href="https://www.codecademy.com/profiles/twinste3">Codecademy</a>||<a
+                    href="https://www.linkedin.com/in/tyrellw/">LinkedIn</a></p>
+            <p>site designed by <a href="winsteaddynamics.com/">Winstead Dynamics.</a> &copy;2023</p>
+            <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
+                    src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
+            <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                    src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+            <script>
+                document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+                document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+            </script>
+        </nav>
+    </footer>
+</body>
+
+</html>

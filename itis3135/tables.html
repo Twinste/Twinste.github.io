@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity #2-HTML Tables-Tyrell Winstead|Tables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Oswald&family=Secular+One&display=swap"
+        rel="stylesheet">
+    <link href="styles/default.css" rel="stylesheet">
+    <script src="scripts/defaultscript.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="title">ITIS-3135|Tyrell Winstead's Theoretic Wildebeest|Tables</h1>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a id="home" href=""></a></li>
+                    <li><a id="intro" href=""></a></li>
+                    <li><a id="contract" href=""></a></li>
+                    <li><a id="tables" href=""></a></li>
+                    <li><a id="forms" href=""></a></li>
+                    <li><a id="website-evaluations" href=""></a></li>
+                    <li><a id="CRAPPY-Webpage" href=""></a></li>
+                    <li><a id="firstscripts" href=""></a></li>
+                    <li><a id="polygons" href=""></a></li>
+                    <li><a id="calculator_try" href=""></a></li>
+                    <li><a id="calculator_fcc" href=""></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- <nav id="siteLinks"></nav> -->
+    </header>
+    <main>
+        <br>
+        <div class="section">
+            <h2>Activity #2 | HTML Tables</h2>
+            <h3>Tabular Data</h3>
+            <ol>
+                <li>Thalia Lopez tlopez@wdynamics.com 12</li>
+                <li>Jaydon Dunn jdunn@wdynamics.com 8</li>
+                <li>Gene Christian gchristian@wdynamics.com 7</li>
+                <li>Marshall Velazquez mvelazquez@wdynamics.com 15</li>
+                <li>Anisa Robbins arobbins@wdynamics.com 2</li>
+                <li>Minnie Perkins mperkins@wdynamics.com 5</li>
+                <li>Carlo Graham cgraham@wdynamics.com 4</li>
+            </ol>
+            <h3>Simple Table of Employee Data</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Years of Service</th>
+                </tr>
+                <tr>
+                    <td>Thalia Lopez</td>
+                    <td>tlopez@wdynamics.com</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Jaydon Dunn</td>
+                    <td>jdunn@wdynamics.com</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Gene Christian</td>
+                    <td>gchristian@wdynamics.com</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Marshall Velazquez</td>
+                    <td>mvelazquez@wdynamics.com</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Anisa Robbins</td>
+                    <td>arobbins@wdynamics.com</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Minnie Perkins</td>
+                    <td>mperkins@wdynamics.com</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Carlo Graham</td>
+                    <td>cgraham@wdynamics.com</td>
+                    <td>4</td>
+                </tr>
+            </table>
+
+
+            <h3>Complex Table of Employee Data</h3>
+            <figure>
+                <figcaption>Employee Information</figcaption>
+                <table>
+                    <tr>
+                        <th id="co1">Category</th>
+                        <th id="co2">Name</th>
+                        <th id="co3">Email</th>
+                        <th id="co4">Years of Service</th>
+                        <th id="co5">Salary</th>
+                    </tr>
+                    <tr>
+                        <td>Leader</td>
+                        <td>Thalia Lopez</td>
+                        <td>tlopez@wdynamics.com</td>
+                        <td>12</td>
+                        <td>$82,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">General</td>
+                        <td>Jaydon Dunn</td>
+                        <td>jdunn@wdynamics.com</td>
+                        <td>8</td>
+                        <td>$45,000</td>
+                    </tr>
+                    <tr>
+                        <td>Gene Christian</td>
+                        <td>gchristian@wdynamics.com</td>
+                        <td>7</td>
+                        <td>$42,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">lieutenant</td>
+                        <td>Marshall Velazquez</td>
+                        <td>mvelazquez@wdynamics.com</td>
+                        <td>15</td>
+                        <td>$36,000</td>
+                    </tr>
+                    <tr>
+                        <td>Anisa Robbins</td>
+                        <td>arobbins@wdynamics.com</td>
+                        <td>2</td>
+                        <td>$24,000</td>
+                    </tr>
+                    <tr>
+                        <td>Minnie Perkins</td>
+                        <td>mperkins@wdynamics.com</td>
+                        <td>5</td>
+                        <td>$28,000</td>
+                    </tr>
+                    <tr>
+                        <td>Carlo Graham</td>
+                        <td>cgraham@wdynamics.com</td>
+                        <td>4</td>
+                        <td>$24,000</td>
+                    </tr>
+                    <tr>
+                        <th id="co8" colspan="4">Total Years of Service</th>
+                        <td>$281,000</td>
+                    </tr>
+                </table>
+            </figure>
+        </div>
+    </main>
+    <footer>
+        <nav id="footerSiteLinks">
+            <p id="myPages"></p>
+            <p id="myCorpSite"></p>
+            <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
+                    src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
+            <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
+                    src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+        </nav>
+        <script>
+            document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+            document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+        </script>
+    </footer>
+</body>
+</html>

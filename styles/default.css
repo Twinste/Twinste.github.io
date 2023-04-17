@@ -86,9 +86,16 @@ main {
 }
 
 /* sub nav */
-.othersites {
-  padding-left: 0.25rem;
+
+.othersites-div {
   padding-top: 16px;
+  padding-left: 0.25rem;
+  text-align: center;
+}
+
+.othersites:hover {
+  color: white;
+  cursor: pointer;
 }
 
 .sub-navbar {
@@ -164,9 +171,9 @@ main {
 }
 
 .contract-content {
-  font-size: large;
-  padding-top: 4.75rem;
-  padding-bottom: 4.75rem;
+  font-size: x-large;
+  padding-top: 7.75rem;
+  padding-bottom: 7.75rem;
 }
 
 .form-content form {
@@ -198,7 +205,7 @@ p {
 .polygons-content {
   font-size: x-large;
   padding-top: 12.5rem;
-  padding-bottom: 12.5rem;
+  padding-bottom: 20rem;
 }
 
 .polygons-content label {
@@ -237,6 +244,10 @@ p {
 .section h3 {
   justify-content: center;
   text-align: center;
+}
+
+.section h2 {
+  text-align: left;
 }
 
 table,
@@ -499,6 +510,8 @@ select:focus {
   max-width: 1000px;
   position: relative;
   margin: auto;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 /* Next & previous buttons */
@@ -544,6 +557,11 @@ footer {
   padding: 10px 10px 0px 10px;
   width: 100%;
   height: 175px;
+  font-size: 4px;
+}
+
+.footerSiteLinks a {
+  font-size: 5px;
 }
 
 a {
@@ -552,14 +570,46 @@ a {
 }
 
 a:hover {
-  color: #cdd1deff;
+  color: white;
+}
+
+h2 a:hover {
+  color: #2e86abff;
 }
 
 a:active {
   color: #2e86abff;
 }
 
-@media (max-width: 1075px) {
+@media (max-width: 1450px) {
+  .navbar-links li a {
+    font-size: smaller;
+  }
+
+  .othersites {
+    font-size: smaller;
+  }
+
+  .othersites-div {
+    padding-top: 13px;
+  }
+}
+
+@media (max-width: 1375px) {
+  .navbar-links li a {
+    font-size: 10px;
+  }
+
+  .othersites {
+    font-size: 10px;
+  }
+
+  .othersites-div {
+    padding-top: 9px;
+  }
+}
+
+@media (max-width: 1100px) {
   .title {
     margin-right: 30px;
   }
@@ -596,15 +646,22 @@ a:active {
   }
 
   .navbar-links ul li a {
-    padding: .5rem .5rem;
+    padding: .75rem .75rem;
+    font-size: 15px;
   }
 
   .othersites {
-    margin: 0 auto;
-    text-align: center;
+    font-size: 15px;
+  }
+
+  .othersites-div {
+    padding-top: 0.1px;
+    padding-left: 0.001rem;
+
+  }
+
+  .sub-navbar-links {
     justify-content: center;
-    left: 0;
-    right: 0;
   }
 
   .navbar-links.active {
@@ -618,9 +675,5 @@ a:active {
     width: 475px;
     margin: 0 auto;
     padding: 75px 0 0;
-  }
-
-  footer a {
-    font-size: 20px;
   }
 }
