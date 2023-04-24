@@ -1,3 +1,10 @@
+const mainToggleButton = document.getElementsByClassName("site-header-toggle")[0];
+const mainNavbarLinks = document.getElementsByClassName("navbar-links")[0];
+
+mainToggleButton.addEventListener("click", () => {
+    mainNavbarLinks.classList.toggle("active");
+});
+
 $(function () {
     const mainNav = document.getElementById("navbar-links");
     mainNav.innerHTML = "<li><a href='visit.html'>Visit</a></li>";

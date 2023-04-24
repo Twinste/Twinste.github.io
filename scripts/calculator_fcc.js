@@ -40,6 +40,8 @@ $(function () {
   subNav.innerHTML += "<li><a id='activity_12' href='activity12/Winstead-Activity12.html'>Activity 12</a></li>";
   subNav.innerHTML += "<li><a id='activity_13' href='activity13/Winstead-Activity13.html'>Activity 13</a></li>";
   subNav.innerHTML += "<li><a id='activity_14' href='activity14/Winstead-Activity14.html'>Activity 14</a></li>";
+  subNav.innerHTML += "<li><a id='activity_15' href='activity15/Winstead-Activity15.html'>Activity 15</a></li>";
+
 })
 
 // Sub-Navbar
@@ -115,6 +117,14 @@ $(function () {
     },
   };
 
+  const certificate = {
+    1: {
+      url: "https://www.freecodecamp.org/certification/twinste3/javascript-algorithms-and-data-structures",
+      text: "Certified in JS.",
+      // alt: "Home page",
+    },
+  };
+
   let htmlString = "";
 
   for (let id in links) {
@@ -126,7 +136,19 @@ $(function () {
     }
   }
 
-  $("#myCorpSite").html("site designed by " + htmlString + " &copy;2023");
+
+  let certificateString = "";
+
+  for (let id in certificate) {
+    if (pathName === certificate[id]["url"]) {
+      certificateString += certificate[id]["text"];
+    } else {
+      certificateString +=
+        '<a href="' + certificate[id]["url"] + '">' + '<u>' + certificate[id]["text"] + '</u>' + "</a>";
+    }
+  }
+
+  $("#myCorpSite").html("site designed by " + htmlString + " &copy;2023, " + certificateString);
 });
 
 const calculator = document.querySelector('.calculator_fcc')
