@@ -28,7 +28,7 @@
             <div class="navbar-links">
                 <ul id="navbar-links"></ul>
                 <div class="othersites-div">
-                    <li class="othersites">Other Sites</li>
+                    <span class="othersites">Other Sites</span>
                 </div>
             </div>
         </nav>
@@ -92,15 +92,8 @@
         <nav id="footerSiteLinks">
             <p id="myPages"></p>
             <p id="myCorpSite"></p>
-            <a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img
-                    src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>
-            <a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img
-                    src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>
+            <div id="validations"></div>
         </nav>
-        <script>
-            document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-            document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-        </script>
     </footer>
 </body>
 

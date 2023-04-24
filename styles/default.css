@@ -560,8 +560,8 @@ footer {
   font-size: 4px;
 }
 
-.footerSiteLinks a {
-  font-size: 5px;
+#footerSiteLinks a {
+  font-size: 18px;
 }
 
 a {
@@ -609,7 +609,7 @@ a:active {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .title {
     margin-right: 30px;
   }
@@ -675,5 +675,31 @@ a:active {
     width: 475px;
     margin: 0 auto;
     padding: 75px 0 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .sub-navbar-links li a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 750px) {
+  .sub-navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .sub-navbar-links ul li {
+    text-align: center;
+  }
+
+  .sub-navbar-links ul li a {
+    padding: .75rem .75rem;
+    font-size: 15px;
+  }
+
+  footer {
+    height: 200px;
   }
 }

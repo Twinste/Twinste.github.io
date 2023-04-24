@@ -151,6 +151,15 @@ $(function () {
   $("#myCorpSite").html("site designed by " + htmlString + " &copy;2023, " + certificateString);
 });
 
+$(function () {
+  const validations = document.getElementById("validations");
+  validations.innerHTML = '<a id="validation_link_html" href="https://validator.w3.org/check?uri=referer"><img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML."></a>';
+  validations.innerHTML += '<a id="validation_link_css" href="https://jigsaw.w3.org/css-validator/check/referer"><img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS."></a>';
+
+  document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+  document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+})
+
 const calculator = document.querySelector('.calculator_fcc')
 const keys = calculator.querySelector('.calculator__keys_fcc')
 const display = document.querySelector('.display_fcc')
